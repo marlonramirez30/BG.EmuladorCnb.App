@@ -74,14 +74,14 @@ namespace BG.EmuladorCnb.App.Components
             this.labelBuffer.Width = this.Width - 80;
             this.labelBuffer.Height = 50;
             this.labelBuffer.Left = (this.ClientSize.Width - this.labelBuffer.Width) / 2;
-            this.labelBuffer.Top = 4;
+            this.labelBuffer.Top = 6;
             this.labelBuffer.Font = new Font("Segoe UI", 16);
             // Borde color magenta personalizado
             labelBuffer.Paint += (s, e) =>
             {
                 using (Pen pen = new Pen(Color.FromArgb(163, 26, 97), 2))
                 {
-                    Rectangle rect = new Rectangle(0, 0, labelBuffer.Width - 1, labelBuffer.Height-1);
+                    Rectangle rect = new Rectangle(0, 2, labelBuffer.Width - 2, labelBuffer.Height - 2);
                     e.Graphics.DrawRectangle(pen, rect);
                 }
             };
