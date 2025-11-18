@@ -32,7 +32,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            var currentScreen = Screen.FromPoint(Cursor.Position);
+
+            int x = currentScreen.WorkingArea.Right - (this.Width + 200);
+            int y = currentScreen.WorkingArea.Top;
+
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmEmulator));
             doTimer_new = new System.Windows.Forms.Timer(components);
             stateTimer_new = new System.Windows.Forms.Timer(components);
             reloadTimer_new = new System.Windows.Forms.Timer(components);
@@ -57,10 +63,12 @@
             // 
             BackColor = Color.White;
             ClientSize = new Size(475, 810);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "FrmEmulator";
             StartPosition = FormStartPosition.Manual;
-            Text = "CNB-Emulator";
+            Location = new Point(x, y);
+            Text = "Banco del Barrio | Banco de Guayaquil";
             Load += FrmEmulator_Load;
             KeyPress += FrmEmulator_KeyPress;
             ResumeLayout(false);

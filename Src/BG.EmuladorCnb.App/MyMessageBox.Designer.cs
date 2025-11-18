@@ -32,6 +32,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MyMessageBox));
             lblMessage = new Label();
             btnYes = new Button();
             btnNo = new Button();
@@ -84,6 +85,7 @@
             Controls.Add(btnNo);
             Controls.Add(btnYes);
             Controls.Add(lblMessage);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "MyMessageBox";

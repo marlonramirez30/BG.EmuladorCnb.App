@@ -221,9 +221,14 @@ namespace BG.EmuladorCnb.App
             {
                 if (!filename.StartsWith("\\"))
                     filename = $"{getCurrentDirectory()}\\{filename}";
-                pictureBox.Image = (Image)new Bitmap(filename);
+
+                var pic = new Bitmap(filename);
+                pic.MakeTransparent(Color.Black);
+
+                pictureBox.Image = (Image)pic;
+                pictureBox.BackColor = Color.FromArgb(209, 0 , 127);
                 pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
-                pictureBox.Width = this.Width - 16;
+                pictureBox.Width = this.Width;
                 pictureBox.Height = 60;//(this.Height - 80) / 8;
                 pictureBox.Top = 0;
                 pictureBox.Left = 0;
